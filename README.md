@@ -1,24 +1,17 @@
-# Secure Spring-Boot Application using Keycloak
-
-Using `keycloak-spring-boot-2-adapter`
-
-* Keycloak Service: http://127.0.0.1:8080/auth
-* REALM: keylcoak deam
-* client: spring-boot-mvc-app
-
-
 # Configure in the application.properties
 
 ```
-keycloak.realm = keycloak-demo
-keycloak.auth-server-url = http://127.0.0.1:8080/auth
-keycloak.resource = spring-boot-mvc-app
+keycloak.realm = keycloak-demo //realm name configured in keycloak
+keycloak.auth-server-url = //keycloak server url
+keycloak.resource = //keycloak client id
 keycloak.principal-attribute=preferred_username
-keycloak.public-client=true
+keycloak.public-client=true //use if the client is set to public access
+keycloak.credentials.secret= //use if the client is set to confidential access (provide secret key) 
 
+keycloak.bearer-only=false //set to true if you want stateless auth (e.g. securing REST endpoints) using bearer token
 
 spring.main.allow-bean-definition-overriding=true
-server.port=8081
+server.port=8080
 ```
 
 
